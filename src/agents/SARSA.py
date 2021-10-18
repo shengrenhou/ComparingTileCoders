@@ -24,7 +24,7 @@ class SARSA:
         self.alpha = params['alpha']
         self.epsilon = params['epsilon']
 
-        # create initial weights
+        # create initial weights，3*64
         self.w = np.zeros((actions, features))
 
         # use the policy utility class to keep track of policy probabilities,
@@ -32,6 +32,7 @@ class SARSA:
         self.policy = buildEGreedyPolicy(self.random, self.epsilon, lambda x: self.w.dot(x))
 
     def selectAction(self, x):
+        # x is the representation of state (2dimentional)
         return self.policy.selectAction(x)
 
     def update(self, x, a, xp, r, gamma):

@@ -14,6 +14,7 @@ class ExperimentModel(ExperimentDescription):
 def load(path=None):
     path = path if path is not None else sys.argv[1]
     with open(path, 'r') as f:
+        # d here is data in json documents 
         d = json.load(f)
 
     exp = ExperimentModel(d, path)

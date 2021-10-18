@@ -11,6 +11,7 @@ class Policy:
         self.random = rng
 
     def selectAction(self, s: Any):
+        # get prob of actions and then sample it from 
         action_probabilities = self.probs(s)
         return sample(action_probabilities, rng=self.random)
 

@@ -26,9 +26,10 @@ class MountainCar(BaseEnvironment):
     def rewards(self, s, a, sp):
         return -1
 
-    # get the next state and termination status
+    # get the next state and termination status.
     def next_state(self, s, a):
         a = a - 1
+        # postion/volecity
         p, v = s
 
         v += 0.001 * a - 0.0025 * np.cos(3 * p)
@@ -47,9 +48,11 @@ class MountainCar(BaseEnvironment):
             return (-1.2, 0.0), False
 
         return (p, v), False
-
+    # step   
     def step(self, a):
+        #state transtion here only need 1. state of last time, 2.action of last time  
         s = (self.position, self.velocity)
+        # sp is (position,velocity),t is terminate or not 
         sp, t = self.next_state(s, a)
         self.position = sp[0]
         self.velocity = sp[1]

@@ -11,6 +11,7 @@ class BaseProblem:
 
         self.agent = None
         self.env = None
+
         self.rep = None
         self.gamma = None
 
